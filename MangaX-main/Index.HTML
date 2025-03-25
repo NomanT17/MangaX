@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MangaX - Your ultimate manga store with a vast collection of manga books.">
+    <meta name="keywords" content="Manga, MangaX, Buy Manga, Japanese Comics, Anime Books">
+    <meta name="author" content="MangaX Store">
+    <title>MangaX - Your Manga Store</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #111;
+            color: #fff;
+        }
+        nav {
+            background: #000;
+            color: #FFD700;
+            padding: 15px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            display: flex; 
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+        }
+        header {
+            top: 0;
+            z-index: 10;
+            background: black;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        nav a:hover{
+            color: #FFD700;
+            transition: color 0.3s ease, color 0.3s ease;
+        }
+            h1:hover{
+            color: #FFD700;
+            transition: color 0.3s ease, color 0.3s ease;
+        }
+        h2:hover{
+            color: #FFD700;
+            transition: color 0.3s ease, color 0.3s ease;
+        }
+        main {
+            padding-top: 60px;
+        }
+        section {
+            padding: 50px;
+            text-align: center;
+        }
+        #home {
+            background: #333;
+        }
+        #products {
+            background: #333;
+        }
+        #about {
+            background: #222;
+        }
+        #contact {
+            background: #333;
+        }
+        .product-card {
+            background: #FFD700;
+            color: #000;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            width: 220px;
+           height:380px;
+            opacity: 20;
+            box-shadow: 0px 4px 8px rgba(255, 215, 0, 0.5);
+            transition: transform 0.4s ease, box-shadow 0.3s ease;
+            overflow: hidden; 
+            vertical-align: top
+        }
+        .product-card:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            transform: translateY(0); 
+        }
+
+        .product-card img {
+            width: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+            height: 250px;
+            border-radius: 5px;
+            
+
+
+        }
+        .product-card:hover img {
+            transform: scale(1.05);
+        }
+        @media (max-width: 768px) {
+            .product-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 15px;
+            }
+
+            .product-card img {
+                width: 100%;
+                height: auto;
+                border-radius: 10px 10px 0 0;
+            }
+
+            }
+            @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: rgb(0, 0, 0);
+            border-radius: 10px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        h4 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #fff;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        h4:hover {
+            transform: scale(1.1);
+            color:#FFD700;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+        h6{
+            font-size: 2rem;
+
+        }
+        h6 p{
+            text-decoration: none;
+            color: white;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            padding: 0;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+            padding: 5px 10px;
+            position: relative;
+            display: inline-block;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #FFD700;
+            bottom: -5px;
+            left: 50%;
+            transition: width 0.3s ease, left 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #FFD700;
+            color: white;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        
+        label {
+            display: block;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            transition: box-shadow 0.3s ease;
+        }
+        header {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        input:focus, textarea:focus {
+            box-shadow: 0 0 10px #fff;
+        }
+        .read-more-btn {
+    background: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    margin-top: 10px;
+    display: inline-block;
+    text-transform: uppercase;
+    font-weight: bold;
+    box-shadow: 0px 0px 10px rgba(0, 123, 255, 0.8);
+    bottom: 10px;
+    overflow: hidden;
+    position: relative;
+  
+}
+
+.read-more-btn:hover {
+    background: #0056b3; 
+    box-shadow: 0px 0px 15px rgba(0, 123, 255, 1); 
+    transform: scale(1.05);
+}
+.logo {
+    height: 50px; 
+    width: auto;
+    margin-right: 20px;
+}
+
+        button {
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            color: #fff;
+            background-color: #FFD700;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #000000;
+            transform: scale(1.05);
+        }
+
+        .form-message {
+            font-size: 1rem;
+            color: #00ff00;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .form-error {
+            font-size: 1rem;
+            color: #ff0000;
+            margin-top: 20px;
+            display: none;
+        }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .container {
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .form-group {
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        
+
+
+        .footer {
+            background: black;
+            color: #FFD700;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h6><p>MangaX</p></h6>
+    <nav>
+        <img src="Images/logo.png" alt="MangaX Logo" class="logo">
+        <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#products">Manga Collection</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+        </ul>
+    </nav>
+</header>
+    <main>
+        <section id="home">
+            <h1>MangaX - Your Ultimate Manga Guide</h1> <br><br>
+            <p>Welcome to MangaX, your go-to destination for discovering the world of manga! Whether you're a seasoned reader or just starting your manga journey, MangaX provides a comprehensive overview of the most popular and must-read manga series. Explore detailed insights into your favorite titles, learn about the brilliant artists behind them, and stay updated on the latest trends in the manga universe.
+
+                With a sleek and user-friendly interface, MangaX makes it easy to browse through different genres, find recommendations, and dive into the captivating world of Japanese storytelling. Start your adventure today and uncover the best mangas to add to your reading list! </p>
+        </section>
+
+        <section id="products">
+            <h2>Our Manga Collection</h2>
+            <div class="product-card">
+                <img src="Images/Dragon.PNG" alt="Manga 1">
+                <h3>Dragon Ball Super</h3>
+                <p>Artist: Toyotarou</p>
+                <button class="read-more-btn">Read More</button>
+            </div>
+            <div class="product-card">
+                <img src="Images/OnePiece.PNG" alt="Manga 2">
+                <h3>One Piece</h3>
+                <p>Artist: Eiichiro Oda</p>
+                <button class="read-more-btn">Read More</button>
+            </div>
+            <div class="product-card">
+                <img src="Images/Naruto.PNG" alt="Manga 3">
+                <h3>Naruto</h3>
+                <p>Arist: Masashi Kishimoto</p>
+                <button class="read-more-btn">Read More</button>
+            </div>
+            <div class="product-card">
+                <img src="Images/bleach.PNG" alt="Manga 4">
+                <h3>Bleach</h3>
+                <p>Artist: Tite Kubo</p>
+                <button class="read-more-btn">Read More</button>
+            </div>
+            <div class="product-card">
+                <img src="Images/Fullmetal.PNG" alt="Manga 5">
+                <h3>Full Metal Alchemist</h3>
+                <p>Artist: Hiromu Arakawa</p>
+                <button class="read-more-btn">Read More</button>
+            </div>
+            <div class="product-card">
+                <img src="Images/sololevel.PNG" alt="Manga 6">
+                <h3>Solo Leveling</h3>
+                <p>Artist: Jang Sung-rak (Dubu) </p>
+                <button class="read-more-btn">Read More</button>
+            </div>
+            <div class="product-card">
+                <img src="Images/Vaga.PNG" alt="Manga 7">
+                <h3>Vagabond</h3>
+                <p>Artist: Takehiko Inoue </p>
+                <button class="read-more-btn">Read More</button>
+            </div>
+            <div class="product-card">
+                <img src="Images/Berserk.PNG" alt="Manga 8">
+                <h3>Berserk</h3>
+                <p>Artist: Kentaro Miura</p>
+                <button class="read-more-btn">Read More</button>
+            </div>
+            <div class="product-card">
+                <img src="Images/Raw.PNG" alt="Manga 9">
+                <h3>Raw Hero</h3>
+                <p>Artist: Akira Hiramoto</p>
+                <button class="read-more-btn">Read More</button>
+            </div>
+            <div class="product-card">
+                <img src="Images/Chainsaw.PNG" alt="Manga 10">
+                <h3>Chainsaw Man</h3>
+                <p>Artist: Tatsuki Fujimoto</p>
+                <button class="read-more-btn">Read More</button>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>About Us</h2>
+            <p> At MangaX, we are passionate about bringing the vibrant world of manga to every reader. Whether you are a long-time fan or just beginning your journey, our mission is to provide a comprehensive and engaging platform where you can explore the most popular and must-read manga series.
+
+                Discover detailed insights into your favorite titles, get to know the brilliant artists behind them, and stay updated on the latest trends in the manga universe. Our curated selection ensures that every manga enthusiast finds something exciting to read.
+                
+                With a sleek and user-friendly interface, MangaX makes it easy to navigate through different genres, find expert recommendations, and dive deep into the rich storytelling that Japanese manga has to offer.
+                
+                Start your manga adventure today and uncover the best stories waiting to be explored! 📖✨ </p>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h4>Contact Us</h4>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit">Send Message</button>
+                    <div class="form-message">Your message has been sent successfully!</div>
+                    <div class="form-error">Oops! Something went wrong. Please try again.</div>
+                </form>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 MangaX. All rights reserved.</p>
+    </footer>
+</body>
+</html>
